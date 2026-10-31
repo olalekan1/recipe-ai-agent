@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from recipe-ai-agent!")
+"""Image-to-recipe AI agent."""

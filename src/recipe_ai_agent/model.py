@@ -1,6 +1,7 @@
 import os
-from langchain.chat_models import init_chat_model
+
 from dotenv import load_dotenv
+from langchain.chat_models import init_chat_model
 
 load_dotenv()
 
@@ -8,5 +9,5 @@ model = init_chat_model(
     model="gpt-5-nano",
     model_provider="openai",
     api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
 )

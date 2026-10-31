@@ -55,7 +55,7 @@ uv sync
 ### 4. Start the agent
 
 ```bash
-uv run python main.py
+uv run recipe-ai-agent
 ```
 
 Choose an image when the file picker opens. If a graphical file picker is unavailable, the application asks you to enter the image path in the terminal. The selected image must be a PNG, JPG, JPEG, or WebP file.
@@ -66,16 +66,17 @@ Choose an image when the file picker opens. If a graphical file picker is unavai
 
 ```text
 recipe-ai-agent/
-├── main.py                 # Application entry point
-├── model.py                # Model configuration
-├── photo_handler.py        # Image selection and image message creation
-├── prompt.py               # Agent and recipe prompts
-├── tools.py                # DuckDuckGo search tool
-├── logger_handler.py       # Logging configuration
+├── main.py                 # Compatibility entry point
 ├── pyproject.toml          # Project metadata and dependencies
 ├── uv.lock                 # Locked dependency versions
 └── src/
-    └── recipe_ai_agent/    # Python package
+    └── recipe_ai_agent/
+        ├── cli.py          # Installed command entry point
+        ├── model.py        # Model configuration
+        ├── photo_handler.py
+        ├── prompt.py
+        ├── tools.py        # DuckDuckGo search tool
+        └── logger_handler.py
 ```
 
 ## Troubleshooting

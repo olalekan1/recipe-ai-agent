@@ -1,14 +1,13 @@
-from model import model
-from langchain.agents import create_agent
-from langchain.messages import HumanMessage, AIMessage
-from pathlib import Path
-from tkinter import TclError, Tk, filedialog
 import base64
 import mimetypes
 
+from pathlib import Path
+from tkinter import TclError, Tk, filedialog
+from langchain.messages import HumanMessage
+
 
 def choose_image_file() -> Path:
-    """Open a local file picker when no image path is passed on the command line."""
+    """Open a local file picker, falling back to a terminal prompt."""
     root = None
     try:
         root = Tk()
@@ -32,6 +31,7 @@ def choose_image_file() -> Path:
 
     return Path(filename).expanduser()
 
+
 def image_to_data_url(image_path: Path) -> str:
     image_path = image_path.expanduser().resolve()
 
@@ -44,6 +44,7 @@ def image_to_data_url(image_path: Path) -> str:
 
     image_b64 = base64.b64encode(image_path.read_bytes()).decode("utf-8")
     return f"data:{mime_type};base64,{image_b64}"
+
 
 def build_image_message(image_path: Path, prompt: str) -> HumanMessage:
     return HumanMessage(
