@@ -1,0 +1,22 @@
+[project]
+name = "recipe-ai-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Peter Ibikunle", email = "ibikunlepeter@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "ddgs>=9.16.1",
+    "dotenv>=0.9.9",
+    "langchain>=1.4.7",
+    "langchain-openai>=1.7.3",
+]
+
+[project.scripts]
+recipe-ai-agent = "recipe_ai_agent:main"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
