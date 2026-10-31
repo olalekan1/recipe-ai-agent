@@ -4,10 +4,12 @@ Recipe AI Agent is a Python application that turns a food or ingredient photo in
 
 ## What it does
 
-- Opens an image picker so you can choose a local food image.
+- Lets you choose a local food image using a graphical picker or by pasting its path.
 - Sends the image and a cooking request to the AI agent.
 - Identifies and lists ingredients visible in the image.
-- Searches the web for recipe ideas using the identified ingredients.
+- Searches the web for recipe ideas and includes sources when available.
+- Provides a structured recipe with estimated servings, preparation/cooking time,
+  ingredients, steps, and optional pantry staples.
 - Prints the agent's response in the terminal.
 
 ```mermaid
@@ -58,7 +60,7 @@ uv sync
 uv run recipe-ai-agent
 ```
 
-Choose an image when the file picker opens. If a graphical file picker is unavailable, the application asks you to enter the image path in the terminal. The selected image must be a PNG, JPG, JPEG, or WebP file.
+Choose whether to use the graphical file picker or paste/type an image path when prompted. The image must be a PNG, JPG, JPEG, or WebP file and no larger than **10 MB (10,000,000 bytes)**. Images are sent at their original size; the app does not resize them. Files over the limit are rejected before they are sent to the model.
 
 **Privacy note:** The image is included in a request to the configured model provider. Only use images you are comfortable sending to that provider.
 
@@ -83,4 +85,5 @@ recipe-ai-agent/
 
 - **Missing API key:** Check that `.env` is in the project root and that its variable is named `OPENROUTER_API_KEY`.
 - **Image not found or unsupported:** Confirm the path is correct and the image is PNG, JPG, JPEG, or WebP.
+- **Image exceeds 10 MB:** Choose a smaller image file. The app does not resize images.
 - **Search or model request fails:** Check your internet connection and confirm your OpenRouter key has access to the configured model.
